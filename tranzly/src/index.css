@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1B4965;
+  --color-teal: #065A82;
+  --color-terracotta: #E07A5F;
+  --color-sage: #81B29A;
+  --color-sand: #F2CC8F;
+  --color-dark-bg: #0F1419;
+  --color-light-bg: #FAFBFC;
+  --color-dark-card: #1a2332;
+  --color-dark-card-hover: #1f2b3d;
+  --color-dark-border: #2a3a4e;
+  --color-dark-text: #e1e8f0;
+  --color-dark-text-muted: #8899aa;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1a2332;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3a4e;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4a5e;
+}
+
+/* Leaflet overrides for dark mode */
+.leaflet-container {
+  background: #1a2332 !important;
+  border-radius: 12px;
+}
+.leaflet-control-zoom a {
+  background: #1a2332 !important;
+  color: #e1e8f0 !important;
+  border-color: #2a3a4e !important;
+}
+.leaflet-control-attribution {
+  background: rgba(26, 35, 50, 0.8) !important;
+  color: #8899aa !important;
+  font-size: 10px !important;
+}
+.leaflet-control-attribution a {
+  color: #8899aa !important;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(129, 178, 154, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(129, 178, 154, 0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+.animate-slide-in-right {
+  animation: slideInRight 0.4s ease-out forwards;
+}
+.animate-count-up {
+  animation: countUp 0.3s ease-out forwards;
+}
+.animate-pulse-green {
+  animation: pulse-green 2s infinite;
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+
+/* Toast */
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(-20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes toastOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-20px) scale(0.95); }
+}
+.toast-enter { animation: toastIn 0.3s ease-out forwards; }
+.toast-exit { animation: toastOut 0.3s ease-in forwards; }
+
+/* Progress bar animation */
+.progress-bar-fill {
+  transition: width 1s ease-out;
+}
+
+/* Smooth page transitions */
+.page-enter {
+  animation: fadeIn 0.3s ease-out forwards;
+}
